@@ -1,9 +1,13 @@
 FROM ubuntu:latest
 WORKDIR /root
 
-# Install fish shell
+# Install basic tools
 RUN apt update \
-    && apt-get install -y software-properties-common \
+    && apt install curl \
+
+
+# Install fish shell
+RUN apt-get install -y software-properties-common \
     && apt-add-repository ppa:fish-shell/release-3 \
     && apt update \
     && apt install -y fish \
