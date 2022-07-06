@@ -3,7 +3,7 @@ WORKDIR /root
 
 # Install basic tools
 RUN apt update \
-    && apt install curl \
+    && apt install curl
 
 
 # Install fish shell
