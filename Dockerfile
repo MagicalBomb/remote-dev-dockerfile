@@ -3,7 +3,8 @@ WORKDIR /root
 
 # Install basic tools
 RUN apt update \
-    && apt install -y curl
+    && apt install -y curl \
+    && apt install -y git
 
 
 # Install fish shell
@@ -12,9 +13,8 @@ RUN apt-get install -y software-properties-common \
     && apt update \
     && apt install -y fish \
     && chsh -s /usr/bin/fish \
-    && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish \
-    && omf install batman \
-    && omf theme batman
+    && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | sed '$iset -g NONINTERACTIVE' | fish \
+    && fish -c 'omf install pure'
 
 
 # Install latest Golang
