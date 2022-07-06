@@ -7,7 +7,10 @@ RUN apt update \
     && apt-add-repository ppa:fish-shell/release-3 \
     && apt update \
     && apt install -y fish \
-    && chsh -s /usr/local/bin/fish \
+    && chsh -s /usr/bin/fish \
+    && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish \
+    && omf install batman \
+    && omf theme batman
 
 
 # Install latest Golang
@@ -23,4 +26,4 @@ RUN apt update \
 #     && rm -f Miniconda3-latest-Linux-x86_64.sh 
 
 # sleep forever
-ENTRYPOINT ["sleep", "infinit"]
+ENTRYPOINT ["sleep", "infinity"]
