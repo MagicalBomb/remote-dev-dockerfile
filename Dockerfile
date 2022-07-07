@@ -15,7 +15,7 @@ RUN apt-get install -y software-properties-common \
     && chsh -s /usr/bin/fish \
     && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | sed '$iset -g NONINTERACTIVE' | fish \
     && fish -c 'omf install pure'
-SHELL fish
+SHELL ["fish", "-c"]
 
 # Install latest Golang
 # RUN wget -c https://go.dev/dl/go1.18.3.linux-amd64.tar.gz -O - | tar -xz \
