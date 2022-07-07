@@ -4,6 +4,7 @@ WORKDIR /root
 # Install basic tools
 RUN apt update \
     && apt install -y curl \
+    && apt install -y wget \
     && apt install -y git \
     && apt install -y vim
 
