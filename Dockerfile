@@ -18,9 +18,9 @@ RUN apt-get install -y software-properties-common \
 SHELL ["fish", "-c"]
 
 # Install latest Golang
-# RUN wget -c https://go.dev/dl/go1.18.3.linux-amd64.tar.gz -O - | tar -xz \
-#     && mv ./go/ /usr/local/go/ \
-#     && echo "export PATH=$PATH:/usr/local/go/bin"
+RUN wget -c https://go.dev/dl/go1.18.3.linux-amd64.tar.gz -O - | tar -xz \
+    && mv ./go/ /usr/local/go/ \
+    && echo "export PATH=$PATH:/usr/local/go/bin"
 
 # # Install Miniconda
 # ENV PATH="/root/miniconda3/bin:${PATH}"
