@@ -20,7 +20,7 @@ SHELL ["fish", "-c"]
 
 # Install latest Golang
 COPY --from=golang:1.18.3-alpine /usr/local/go/ /usr/local/go/
-ENV PATH="/usr/local/go/bin:${PATH}"
+RUN echo "export PATH=$PATH:/usr/local/go/bin" >> /etc/profile
 
 # # Install Miniconda
 # ENV PATH="/root/miniconda3/bin:${PATH}"
