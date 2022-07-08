@@ -16,7 +16,6 @@ RUN apt-get install -y software-properties-common \
     && chsh -s /usr/bin/fish \
     && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | sed '$iset -g NONINTERACTIVE' | fish \
     && fish -c 'omf install pure'
-SHELL ["fish", "-c"]
 
 # Install latest Golang
 RUN wget -c https://go.dev/dl/go1.18.3.linux-amd64.tar.gz -O - | tar -xz \
@@ -31,6 +30,7 @@ RUN wget -c --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-
     && rm -f conda_installer \
 
 # Configure git
+SHELL ["fish", "-c"]
 RUN git config --global color.ui auto \
     && git config --global core.quotepath off \
     && git config --global core.editor "vim" \
