@@ -27,7 +27,7 @@ ENV PATH="/usr/local/miniconda/bin:${PATH}"
 RUN wget -c --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O conda_installer \
     && bash conda_installer -b -p /usr/local/miniconda \
     && conda init fish \
-    && rm -f conda_installer \
+    && rm -f conda_installer
 
 # Configure git
 SHELL ["fish", "-c"]
