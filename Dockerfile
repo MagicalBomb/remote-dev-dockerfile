@@ -24,11 +24,11 @@ RUN wget -c https://go.dev/dl/go1.18.3.linux-amd64.tar.gz -O - | tar -xz \
 ENV PATH="/usr/local/go/bin:${PATH}"
 
 # # Install Miniconda
-# ENV PATH="/root/miniconda3/bin:${PATH}"
-# RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
-#     && mkdir ./.conda \
-#     && bash Miniconda3-latest-Linux-x86_64.sh -b \
-#     && rm -f Miniconda3-latest-Linux-x86_64.sh 
+ENV PATH="/usr/local/miniconda/bin:${PATH}"
+RUN wget -c --quiet https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O conda_installer \
+    && bash conda_installer -b -p /usr/local/miniconda \
+    && conda init fish \
+    && rm -f conda_installer \
 
 # Configure git
 RUN git config --global color.ui auto \
